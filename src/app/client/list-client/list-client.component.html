@@ -1,0 +1,28 @@
+<h2>liste des clients</h2>
+<button class="btn btn-success" [routerLink]="['/client', 'add']">
+  Ajouter un client
+</button>
+<table class="table">
+  <thead>
+    <th scope="col">#</th>
+    <th scope="col">Nom</th>
+    <th scope="col">Email</th>
+    <th scope="col">Telephone</th>
+    <th>Editer</th>
+    <th>Supprimer</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of clients">
+      <th scope="row">{{ client.id }}</th>
+      <td>{{ client.nom }}</td>
+      <td>{{ client.email }}</td>
+      <td>{{ client.tel ? client.tel : "" }}</td>
+      <td>
+        <button class="btn btn-primary" [routerLink]="['/client', 'edit', 'clients.id']">
+          Editer
+        </button>
+      </td>
+      <td><button class="btn btn-danger">supprimer</button></td>
+    </tr>
+  </tbody>
+</table>

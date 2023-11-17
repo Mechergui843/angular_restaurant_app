@@ -1,0 +1,28 @@
+<h2>Ajouter un client</h2>
+
+<form (ngSubmit)="addClient(f)" #f="ngForm">
+    <div class="mb-3">
+        <label for="nom" class="form-label">Nom</label>
+        <input type="text" class="form-control" id="nom" name="nom" ngModel required #n="ngModel" />
+        <span class="error" *ngIf="n.invalid && n.touched">le champs nom est obligatoire</span>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" class="form-control" id="email" name="email" ngModel email required #e="ngModel"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+        <span class="error" *ngIf="e.invalid && e.touched && e.errors">le champs nom est obligatoire</span>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">password</label>
+        <input type="password" class="form-control" id="password" name="password" ngModel required #p="ngModel" />
+        <span class="error" *ngIf="p.invalid && p.touched ">le champs nom est obligatoire</span>
+    </div>
+    <div class="mb-3">
+        <label for="Telephone" class="form-label">Telephone</label>
+        <input type="text" class="form-control" id="Telephone" name="telephone" ngModel />
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid">
+        valider
+    </button>
+</form>
